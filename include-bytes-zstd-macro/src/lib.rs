@@ -33,14 +33,6 @@ pub fn include_bytes_zstd(input: TokenStream) -> TokenStream {
     let filename = PathBuf::from(args.filename.value());
     let level = args.level.base10_parse::<i32>().unwrap();
 
-    // resolves file path
-    let manifest_dir = PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").unwrap());
-    let filename = if filename.is_relative() {
-        manifest_dir.join(filename)
-    } else {
-        filename
-    };
-
     // compression
     let bytes = std::fs::read(filename).unwrap();
     let mut compressed = vec![];
