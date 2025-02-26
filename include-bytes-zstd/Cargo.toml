@@ -14,4 +14,4 @@ categories = ["compression"]
 
 [dependencies]
 include-bytes-zstd-macro = { path = "../include-bytes-zstd-macro", version = "0.1.0" }
-ruzstd = "0.3.0" # MIT
+ruzstd = "0.8.0" # MIT

@@ -42,7 +42,7 @@ macro_rules! include_bytes_zstd {
 /// Decodes zstd compressed data.
 #[doc(hidden)]
 pub fn decode(data: &[u8]) -> Vec<u8> {
-    let mut decoder = ruzstd::StreamingDecoder::new(data).unwrap();
+    let mut decoder = ruzstd::decoding::StreamingDecoder::new(data).unwrap();
     let mut buff = vec![];
     decoder.read_to_end(&mut buff).unwrap();
     buff
