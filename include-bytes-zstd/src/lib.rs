@@ -34,7 +34,7 @@ pub use include_bytes_zstd_macro;
 macro_rules! include_bytes_zstd {
     ($filename:literal, $level:literal) => {{
         const _: &'static [u8] =
-            include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/", $filename));
+            include_bytes!($filename);
         $crate::include_bytes_zstd_macro::include_bytes_zstd!($filename, $level)
     }};
 }
